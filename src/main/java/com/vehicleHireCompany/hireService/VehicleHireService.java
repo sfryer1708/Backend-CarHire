@@ -28,7 +28,6 @@ public class VehicleHireService {
     
     public static CopyOnWriteArrayList<HireRate> hireCosts;
 
-    /** Creates a new instance of HelloWorld */
     public VehicleHireService() {
         VehicleDAOImpl vehicleDAO = new VehicleDAOImpl();
         HireDAOImpl hireDAO = new HireDAOImpl();
