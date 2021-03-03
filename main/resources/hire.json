@@ -1,0 +1,11 @@
+[{
+        "category": "van",
+        "rate": 5000
+    }, {
+        "category": "smallCar",
+        "rate": 2500
+    },
+    {
+        "category": "estateCar",
+        "rate": 3500
+    }]
