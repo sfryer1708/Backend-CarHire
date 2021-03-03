@@ -2,6 +2,7 @@ package com.vehicleHireCompany.hireService.hire;
 
 import com.vehicleHireCompany.hireService.dao.HireDAO;
 import com.vehicleHireCompany.hireService.dao.HireDAOImpl;
+import com.vehicleHireCompany.hireService.dao.VehicleDAO;
 import com.vehicleHireCompany.hireService.dao.VehicleDAOImpl;
 import com.vehicleHireCompany.hireService.dto.Vehicle;
 import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
@@ -20,7 +21,7 @@ public class VehicleHireImpl {
         CurrencyUnit gbp = Monetary.getCurrency("GBP");
         Money hireMoney = Money.of(0, gbp);
         
-        VehicleDAOImpl vehicleDAO = new VehicleDAOImpl();
+        VehicleDAO vehicleDAO = new VehicleDAOImpl();
         HireDAO hireDAO = new HireDAOImpl();
         Optional<Vehicle> vehicle = vehicleDAO.getVehicle(regNumber);
         Optional<String> category = Optional.empty();
