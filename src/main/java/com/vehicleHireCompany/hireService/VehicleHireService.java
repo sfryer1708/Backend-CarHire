@@ -1,8 +1,8 @@
 package com.vehicleHireCompany.hireService;
 
-import com.vehicleHireCompany.hireService.dao.HireDAO;
+import com.vehicleHireCompany.hireService.dao.HireDAOImpl;
 import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
-import com.vehicleHireCompany.hireService.dao.VehicleDAO;
+import com.vehicleHireCompany.hireService.dao.VehicleDAOImpl;
 import com.vehicleHireCompany.hireService.dto.Hire;
 import com.vehicleHireCompany.hireService.dto.HireRate;
 import com.vehicleHireCompany.hireService.dto.Vehicle;
@@ -31,8 +31,8 @@ public class VehicleHireService {
 
     /** Creates a new instance of HelloWorld */
     public VehicleHireService() {
-        VehicleDAO vehicleDAO = new VehicleDAO();
-        HireDAO hireDAO = new HireDAO();
+        VehicleDAOImpl vehicleDAO = new VehicleDAOImpl();
+        HireDAOImpl hireDAO = new HireDAOImpl();
         try {
             List<Vehicle> vehiclesList = vehicleDAO.readFile("vehicles.json").get();
             vehicles = new CopyOnWriteArrayList(vehiclesList);

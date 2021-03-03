@@ -2,12 +2,13 @@ package com.vehicleHireCompany.hireService;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
 import com.vehicleHireCompany.hireService.dao.VehicleDAO;
+import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
+import com.vehicleHireCompany.hireService.dao.VehicleDAOImpl;
 import com.vehicleHireCompany.hireService.dto.Hire;
 import com.vehicleHireCompany.hireService.dto.Vehicle;
 import com.vehicleHireCompany.hireService.exceptions.InputParameterException;
-import com.vehicleHireCompany.hireService.hire.VehicleHire;
+import com.vehicleHireCompany.hireService.hire.VehicleHireImpl;
 import com.vehicleHireCompany.hireService.utils.DateUtils;
 import com.vehicleHireCompany.hireService.utils.JSONUtils;
 import java.time.LocalDate;
@@ -24,7 +25,7 @@ public class Controller {
                 throws RetrievingDataException, InputParameterException {
         
         String json = null;        
-        VehicleDAO vehicleDAO = new VehicleDAO();
+        VehicleDAO vehicleDAO = new VehicleDAOImpl();
         
         switch(action) {
             case "getVehicles": {
@@ -51,7 +52,7 @@ public class Controller {
                     params.getFirst("end") != null) {
                     
                     vehicle = vehicleDAO.getVehicle(Optional.of(params.getFirst("regNumber")));
-                    VehicleHire vehicleHire = new VehicleHire();
+                    VehicleHireImpl vehicleHire = new VehicleHireImpl();
                     DateUtils dateUtils = new DateUtils();
                     Optional<LocalDate> startDate = dateUtils.createLocalDate(params.getFirst("start"));
                     Optional<LocalDate> endDate = dateUtils.createLocalDate(params.getFirst("end"));
