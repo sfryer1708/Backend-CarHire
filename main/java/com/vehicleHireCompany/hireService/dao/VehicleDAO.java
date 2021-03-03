@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vehicleHireCompany.hireService.dao;
 
 import com.vehicleHireCompany.hireService.dto.Vehicle;
 import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
 import java.util.List;
+import java.util.Optional;
 
-/**
- *
- * @author sfrye
- */
 public interface VehicleDAO {
     public List<Vehicle> getAvaiableVehicles() throws RetrievingDataException;
+    
+    public List<Vehicle> getAllVehicles() throws RetrievingDataException;
+    
+    public Optional<Vehicle> getVehicle(final Optional<String> registration) throws RetrievingDataException;
 }

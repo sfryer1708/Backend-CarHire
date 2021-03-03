@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vehicleHireCompany.hireService.dao;
 
 import com.vehicleHireCompany.hireService.dto.Vehicle;
@@ -17,11 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author sfryer
- */
-public class VehicleDAOImpl {
+public class VehicleDAOImpl implements VehicleDAO {
     
     public Optional<List<Vehicle>> readFile(final String file) throws RetrievingDataException {
         Optional<List<Vehicle>> vehicles = Optional.empty();
@@ -40,15 +31,18 @@ public class VehicleDAOImpl {
         return vehicles;
     }
     
+    @Override
     public List<Vehicle> getAvaiableVehicles() throws RetrievingDataException {
         final List<Vehicle> list = VehicleHireService.vehicles.stream().filter(e -> e.isHired() == false).collect(Collectors.toList());
         return list;
     }
     
+    @Override
     public List<Vehicle> getAllVehicles() throws RetrievingDataException {
         return VehicleHireService.vehicles;
     }
     
+    @Override
     public Optional<Vehicle> getVehicle(final Optional<String> registration) throws RetrievingDataException {
         if(registration.isPresent()) {
             final List<Vehicle> list = VehicleHireService.vehicles.stream().filter(e -> e.getRegistration().equals(registration.get())).collect(Collectors.toList());
