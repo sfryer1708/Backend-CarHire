@@ -3,7 +3,6 @@ package com.vehicleHireCompany.hireService;
 import com.vehicleHireCompany.hireService.dao.HireDAOImpl;
 import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
 import com.vehicleHireCompany.hireService.dao.VehicleDAOImpl;
-import com.vehicleHireCompany.hireService.dto.Hire;
 import com.vehicleHireCompany.hireService.dto.HireRate;
 import com.vehicleHireCompany.hireService.dto.Vehicle;
 import com.vehicleHireCompany.hireService.exceptions.InputParameterException;
@@ -52,7 +51,7 @@ public class VehicleHireService {
 
     @GET
     @Produces("application/json")
-    public Response getHtml() {
+    public Response getVehicles() {
         MultivaluedMap<String, String> params = context.getQueryParameters();
         Controller controller = new Controller();
         
