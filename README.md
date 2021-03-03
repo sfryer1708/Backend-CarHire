@@ -25,5 +25,6 @@ Improvements
 6. Given more time I would have improved the vehicle hire class so that it uses more functional programming techniques.
 7. I would have JavaDoc'ed the classes.
 8. I also don't think I validated that the boolean onlyAvailable parameter was true of false.
+9. Benn more flexible on the space between the registration number so you could include it or not.
 
 I would also like to rewrite this using SpringBoot, this would have made it easier to run.
