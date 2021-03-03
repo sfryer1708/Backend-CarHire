@@ -1,7 +1,7 @@
 package com.vehicleHireCompany.hireService.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vehicleHireCompany.hireService.VehicleHireService;
+import com.vehicleHireCompany.hireService.VehicleHireServiceImpl;
 import com.vehicleHireCompany.hireService.dto.HireRate;
 import com.vehicleHireCompany.hireService.exceptions.RetrievingDataException;
 import com.vehicleHireCompany.hireService.utils.FileUtils;
@@ -31,7 +31,7 @@ public class HireDAOImpl implements HireDAO {
     }
     
     public long getHireCost(final String category) {
-        final List<HireRate> list = VehicleHireService.hireCosts.stream().
+        final List<HireRate> list = VehicleHireServiceImpl.hireCosts.stream().
             filter(e -> e.getCategory().equals(category)).collect(Collectors.toList());
         return list.size() > 0 ? list.get(0).getRate() : -1;
     }

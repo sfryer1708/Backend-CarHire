@@ -1,6 +1,6 @@
 package com.vehicleHireCompany.hireService.utils;
 
-import com.vehicleHireCompany.hireService.VehicleHireService;
+import com.vehicleHireCompany.hireService.VehicleHireServiceImpl;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -18,7 +18,7 @@ public class DateUtils {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return Optional.of(LocalDate.parse(date, formatter));
         } catch(IllegalArgumentException | DateTimeParseException e) {
-            Logger.getLogger(VehicleHireService.class.getName()).log(
+            Logger.getLogger(VehicleHireServiceImpl.class.getName()).log(
                     Level.SEVERE, "Error parsing date.", e);
         }
         
