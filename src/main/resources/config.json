@@ -1,0 +1,8 @@
+{
+    "fuelTypes": [{"id": "1", "type": "PETROL"}, {"id": "2", "type": "DIESEL"}],
+    "vehicleCategory": [
+        {"id": "1", "type": "small car", "datRate": 25},
+        {"id": "2", "type": "estate car", "dayRate": 35},
+        {"id": "3", "type": "van", "dayRate": 50}
+    ]
+}
