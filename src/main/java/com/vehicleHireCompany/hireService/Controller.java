@@ -30,7 +30,6 @@ public class Controller {
         switch(action) {
             case "getVehicles": {
                 Optional<List<Vehicle>> vehicles = Optional.empty();
-                JSONUtils jsonUtils = new JSONUtils();
                 
                 if(params.getFirst("onlyAvailable").equals("true")) {
                     vehicles = Optional.of(vehicleDAO.getAvaiableVehicles());
@@ -39,7 +38,7 @@ public class Controller {
                 }
                 
                 if(vehicles.isPresent()) {
-                    json = jsonUtils.convertListToJson(vehicles.get());
+                    json = JSONUtils.convertListToJson(vehicles.get());
                 }
                 break;   
             }
@@ -53,9 +52,8 @@ public class Controller {
                     
                     vehicle = vehicleDAO.getVehicle(Optional.of(params.getFirst("regNumber")));
                     VehicleHireImpl vehicleHire = new VehicleHireImpl();
-                    DateUtils dateUtils = new DateUtils();
-                    Optional<LocalDate> startDate = dateUtils.createLocalDate(params.getFirst("start"));
-                    Optional<LocalDate> endDate = dateUtils.createLocalDate(params.getFirst("end"));
+                    Optional<LocalDate> startDate = DateUtils.createLocalDate(params.getFirst("start"));
+                    Optional<LocalDate> endDate = DateUtils.createLocalDate(params.getFirst("end"));
                     hireCost = vehicleHire.calculateHireCost(Optional.of(params.getFirst("regNumber")), startDate, endDate);
                 }
                 

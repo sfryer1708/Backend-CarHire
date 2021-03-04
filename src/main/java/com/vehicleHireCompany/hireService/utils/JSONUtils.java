@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class JSONUtils {
     
-    public String convertListToJson(final List list) {
+    static public String convertListToJson(final List list) {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final ObjectMapper mapper = new ObjectMapper();
         try {

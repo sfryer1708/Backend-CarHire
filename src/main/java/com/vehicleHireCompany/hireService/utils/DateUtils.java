@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class DateUtils {
     
-    public Optional<LocalDate> createLocalDate(String date) {
+    static public Optional<LocalDate> createLocalDate(String date) {
         
         Optional<LocalDate> localDate = Optional.empty();
         
